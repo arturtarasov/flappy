@@ -1,7 +1,7 @@
-function Bird(x, y, img) {
+function Bird(x, y, imgBird) {
   this.x = x;
   this.y = y;
-  this.img = loadImage("img/bird.png");
+  this.imgBird = loadImage("img/bird.png");
   
   this.yV = 0;
   this.yM = 0;
@@ -22,6 +22,8 @@ Bird.prototype.draw = function () {
   stroke(40);
   strokeWeight(3);
   fill(255);
-  image(this.img,this.x, this.y);
+
+  image(this.imgBird,this.x, this.y);
+
   //rect(this.x, this.y, this.r *2, this.r *2);
 };
