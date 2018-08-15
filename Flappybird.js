@@ -1,35 +1,42 @@
-var bird, temp;
-var gravity = 0.3;
+var CANVAS_WIDTH = 800;
+var CANVAS_HEIGHT = 500;
+var bird;
 var pipes = [];
-var speed = 1;
-var imgBird, imgUp, imgDown;
 
 function setup() {
-  createCanvas(800, 500);
-  //bird = new Bird(400, height/2, 10, imgBird);
-    temp = new Pipe(300, imgUp, imgDown);
-  textSize(40);
-  textAlign(CENTER);
+    createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+    bird = new Bird(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+    pipes.push(new Pipe(width));
+    textSize(40);
+    textAlign(CENTER);
 }
 
 function draw() {
-  background(51);
-  //bird.update();
-  //bird.draw();
-//    temp = new Pipe(100, imgUp, imgDown);
-    temp.draw();
-    temp.update();
-  noStroke();
-  textSize(20);
-  fill(255, 255, 255);
-  fill(255, 255, 255);
+    background(51);
+    bird.update();
+    bird.draw();
+    bird.touchWall();
+    if (frameCount % 100 == 0){
+        pipes.push(new Pipe(width));
+    }
+
+    for (var i = 0; i < pipes.length; i++)
+    {
+        pipes[i].draw();
+        pipes[i].update();
+        bird.touchPipe(pipes[i]);
+    }
+    noStroke();
+    textSize(20);
+    fill(255, 255, 255);
+    fill(255, 255, 255);
 }
 
 function keyPressed() {
-  if (keyCode === 32) {
-    bird.hop(-8);
-	audioFly();
-  }
+    if (keyCode === 32) {
+        bird.hop(-8);
+        audioFly();
+    }
 }
  function audioFly(){
 	var audioFly = document.getElementById("audio");

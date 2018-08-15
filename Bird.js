@@ -1,29 +1,33 @@
-function Bird(x, y, imgBird) {
-  this.x = x;
-  this.y = y;
-  this.imgBird = loadImage("img/bird.png");
-  
-  this.yV = 0;
-  this.yM = 0;
+var JUMP_BIRD = 0;
+var GRAVITY = 0.3;
+
+function Bird(x, y) {
+    this.x = x;
+    this.y = y;
+    this.imgBird = loadImage("img/bird.png");
+    this.yV = JUMP_BIRD;
 }
 
 Bird.prototype.update = function () {
-  this.yV += gravity;
-
-  this.y  += this.yV;
+    this.yV += GRAVITY;
+    this.y  += this.yV;
 };
 
 Bird.prototype.hop = function (force) {
-  this.yV = 0;
-  this.yV += force;
+    this.yV = JUMP_BIRD;
+    this.yV += force;
 };
 
 Bird.prototype.draw = function () {
-  stroke(40);
-  strokeWeight(3);
-  fill(255);
+    image(this.imgBird,this.x, this.y);
+};
 
-  image(this.imgBird,this.x, this.y);
+Bird.prototype.touchWall = function () {
+    if (this.y > height || this.y < 0)
+      console.log("wall");
+};
 
-  //rect(this.x, this.y, this.r *2, this.r *2);
+Bird.prototype.touchPipe = function (pipe) {
+    if (pipe.x - this.x < 5)
+        console.log("pipe");
 };
