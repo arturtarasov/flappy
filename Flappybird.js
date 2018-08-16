@@ -1,6 +1,8 @@
 (function(){
     var CANVAS_WIDTH = 800;
     var CANVAS_HEIGHT = 500;
+    var SPACE_KEY_CODE = 32;
+    var JUMP_HEIGHT = -8;
     var bird;
     var pipes = [];
 
@@ -34,8 +36,8 @@
     }
 
     window.keyPressed = function() {
-        if (keyCode === 32) {
-            bird.hop(-8);
+        if (keyCode === SPACE_KEY_CODE) {
+            bird.hop(JUMP_HEIGHT);
             audioFly();
         }
     }
