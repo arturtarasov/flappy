@@ -1,6 +1,6 @@
 (function(){
-    var JUMP_BIRD = 0;
-    var GRAVITY = 0.3;
+    var JUMP_BIRD   = 0;
+    var GRAVITY     = 0.3;
 
     window.Bird = function(x, y){
         this.x = x;
