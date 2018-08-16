@@ -1,7 +1,7 @@
 (function(){
-    window.Score = function(score, highestScore){
-        this.score = score;
-        this.highestScore = highestScore;
+    window.Score = function(){
+        this.score = 0;
+        this.highestScore = 0;
     }
     Score.prototype.getHighestScore = function(){
         let storedScore = localStorage.getItem("score");

@@ -1,19 +1,18 @@
 (function(){
-
+    //const in Flappybird.js
     var CANVAS_WIDTH    = 800;
     var CANVAS_HEIGHT   = 500;
     var SPACE_KEY_CODE  = 32;
     var ENTER_KEY_CODE  = 13;
     var JUMP_HEIGHT     = -8;
-    var bird;
+
+    //for objects
+    var bird, score;
     var pipes = [];
-    var score;
-    var currentScore;
-    var highestScore;
 
     window.setup = function() {
         createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-        score = new Score(currentScore, highestScore);
+        score = new Score();
         score.getHighestScore();
         score.score = 0;
 
