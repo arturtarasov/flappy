@@ -7,7 +7,7 @@
         this.y = y;
         this.imgBird = loadImage("img/bird.png");
         this.yV = JUMP_BIRD;
-    }
+    };
 
     Bird.prototype.update = function () {
         this.yV += GRAVITY;
@@ -32,4 +32,4 @@
         if (pipe.x - this.x < 5)
             console.log("pipe");
     };
-})()
+})();

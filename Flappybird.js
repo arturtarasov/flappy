@@ -21,7 +21,7 @@
         pipes.push(new Pipe(width));
         textSize(40);
         textAlign(CENTER);
-    }
+    };
 
     //update function
     window.draw = function() {
@@ -47,7 +47,7 @@
         text("Record Score : " + score.highestScore, 90, 25);
         fill(255, 255, 255);
         text("Score : " + score.score, 50, height - 20);
-    }
+    };
 
     //keyboard capture
     window.keyPressed = function() {
@@ -59,7 +59,7 @@
             score.setHighestScore();
             window.location.reload();
         }
-    }
+    };
 
     //play audio function
     function audioFly(){
@@ -74,4 +74,4 @@
         text('You lose !', width/2, height/2);
         text('Press ENTER to restart !', width/2, height/2+30);
     }
-})()
+})();

@@ -16,4 +16,4 @@
             localStorage.setItem("score", this.highestScore);
         }
     };
-})()
+})();
