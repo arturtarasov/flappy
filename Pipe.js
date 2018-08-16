@@ -1,4 +1,5 @@
 (function(){
+    //const in Pipe.js
     var WIDTH_PIPE          = 45;
     var HEIGHT_PIPE_UP_1    = 80;
     var HEIGHT_PIPE_UP_2    = 320;
@@ -8,7 +9,6 @@
     window.Pipe = function(x) {
         this.x = x;
         this.heightPipeUp = random(HEIGHT_PIPE_UP_1, HEIGHT_PIPE_UP_2);
-        this.heightPipeDown = height-(this.heightPipeUp + BIRD_WAY);
         this.imgUp = loadImage("img/pipeUp.png");
         this.imgDown = loadImage("img/pipeDown.png");
     };

@@ -1,4 +1,5 @@
 (function(){
+    //const in Bird.js
     var JUMP_BIRD   = 0;
     var GRAVITY     = 0.3;
 

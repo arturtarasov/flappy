@@ -41,12 +41,7 @@
             pipes[i].update();
             bird.touchPipe(pipes[i]);
         }
-        noStroke();
-        textSize(20);
-        fill(255, 255, 255);
-        text("Record Score : " + score.highestScore, 90, 25);
-        fill(255, 255, 255);
-        text("Score : " + score.score, 50, height - 20);
+        score.viewScore();
     };
 
     //keyboard capture
