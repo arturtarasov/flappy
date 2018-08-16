@@ -1,28 +1,30 @@
-var WIDTH_PIPE = 45;
-var HEIGHT_PIPE_UP_1 = 80;
-var HEIGHT_PIPE_UP_2 = 320;
-var SPEED_PIPE = 1.5;
-var BIRD_WAY = 150;
+(function(){
+    var WIDTH_PIPE = 45;
+    var HEIGHT_PIPE_UP_1 = 80;
+    var HEIGHT_PIPE_UP_2 = 320;
+    var SPEED_PIPE = 1.5;
+    var BIRD_WAY = 150;
 
-function Pipe(x) {
-    this.x = x;
-    this.heightPipeUp = random(HEIGHT_PIPE_UP_1, HEIGHT_PIPE_UP_2);
-    this.heightPipeDown = height-(this.heightPipeUp + BIRD_WAY);
-    this.imgUp = loadImage("img/pipeUp.png");
-    this.imgDown = loadImage("img/pipeDown.png");
-}
-
-Pipe.prototype.update = function () {
-    this.x -= SPEED_PIPE;
-}
-
-Pipe.prototype.draw = function () {
-    image(this.imgUp, this.x, 0, WIDTH_PIPE, this.heightPipeUp);
-    image(this.imgDown, this.x, this.heightPipeUp + BIRD_WAY, WIDTH_PIPE, height-(this.heightPipeUp + BIRD_WAY));
-}
-
-Pipe.prototype.removePipe = function(){
-    if(this.x == 500){
-        this.splice(1, 1)
+    window.Pipe = function(x) {
+        this.x = x;
+        this.heightPipeUp = random(HEIGHT_PIPE_UP_1, HEIGHT_PIPE_UP_2);
+        this.heightPipeDown = height-(this.heightPipeUp + BIRD_WAY);
+        this.imgUp = loadImage("img/pipeUp.png");
+        this.imgDown = loadImage("img/pipeDown.png");
     }
-}
+
+    Pipe.prototype.update = function () {
+        this.x -= SPEED_PIPE;
+    }
+
+    Pipe.prototype.draw = function () {
+        image(this.imgUp, this.x, 0, WIDTH_PIPE, this.heightPipeUp);
+        image(this.imgDown, this.x, this.heightPipeUp + BIRD_WAY, WIDTH_PIPE, height-(this.heightPipeUp + BIRD_WAY));
+    }
+
+    Pipe.prototype.removePipe = function(){
+        if(this.x == 500){
+            this.splice(1, 1)
+        }
+    }
+})()
