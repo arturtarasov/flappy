@@ -1,8 +1,9 @@
 (function(){
+
     window.Score = function(){
         this.score = 0;
         this.highestScore = 0;
-    }
+    };
     Score.prototype.getHighestScore = function(){
         let storedScore = localStorage.getItem("score");
         this.highestScore = storedScore === null ? 0 : parseInt(storedScore, 10);

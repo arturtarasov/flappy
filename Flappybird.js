@@ -10,6 +10,7 @@
     var bird, score;
     var pipes = [];
 
+    //start function
     window.setup = function() {
         createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
         score = new Score();
@@ -22,6 +23,7 @@
         textAlign(CENTER);
     }
 
+    //update function
     window.draw = function() {
         background(51);
         bird.update();
@@ -42,11 +44,12 @@
         noStroke();
         textSize(20);
         fill(255, 255, 255);
-        text("Record Score : " + score.highestScore, 80, 25);
+        text("Record Score : " + score.highestScore, 90, 25);
         fill(255, 255, 255);
         text("Score : " + score.score, 50, height - 20);
     }
 
+    //keyboard capture
     window.keyPressed = function() {
         if (keyCode === SPACE_KEY_CODE) {
             bird.hop(JUMP_HEIGHT);
@@ -57,10 +60,14 @@
             window.location.reload();
         }
     }
+
+    //play audio function
     function audioFly(){
         var audioFly = document.getElementById("audio");
         audioFly.play();
     }
+
+    //end game function
     function endGame() {
         noLoop();
         noStroke();
