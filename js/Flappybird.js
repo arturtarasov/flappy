@@ -28,7 +28,7 @@
         background(51);
         bird.update();
         bird.draw();
-        bird.touchWall();
+        //bird.touchWall();
         score.setHighestScore();
         if (frameCount % 100 == 0){
             pipes.push(new Pipe(width));
@@ -39,7 +39,7 @@
         {
             pipes[i].draw();
             pipes[i].update();
-            bird.touchPipe(pipes[i]);
+            //bird.touchPipe(pipes[i]);
         }
         score.viewScore();
     };
@@ -54,6 +54,11 @@
             score.setHighestScore();
             window.location.reload();
         }
+    };
+
+    window.onmousedown = function(){
+        bird.hop(JUMP_HEIGHT);
+        audioFly()
     };
 
     //play audio function
