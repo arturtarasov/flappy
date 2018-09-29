@@ -1,13 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="./lib/p5.min.js"></script>
     <script type="text/javascript" src="js/Bird.js"></script>
     <script type="text/javascript" src="js/Pipe.js"></script>
     <script type="text/javascript" src="js/Score.js"></script>
+    <script type="text/javascript" src="js/WindowShow.js"></script>
     <script type="text/javascript" src="js/Flappybird.js"></script>
+    <style>
+        #scoreboard
+        {
+            position: absolute;
+            display: none;
+            opacity: 0;
+            top: 64px;
+            left: 43px;
+            width: 236px;
+            height: 280px;
+            background-image: url('img/scoreboard.png');
+            background-repeat: no-repeat;
+
+            z-index: 1000;
+        }
+
+        #medal
+        {
+            position: absolute;
+            opacity: 1;
+            top: 114px;
+            left: 32px;
+            width: 44px;
+            height: 44px;
+        }
+
+        #currentscore
+        {
+            position: absolute;
+            top: 105px;
+            left: 107px;
+            width: 104px;
+            height: 14px;
+            text-align: right;
+        }
+
+        #currentscore img
+        {
+            padding-left: 2px;
+        }
+
+        #highscore
+        {
+            position: absolute;
+            top: 147px;
+            left: 107px;
+            width: 104px;
+            height: 14px;
+            text-align: right;
+        }
+
+        #highscore img
+        {
+            padding-left: 2px;
+        }
+
+        #replay
+        {
+            position: absolute;
+            opacity: 1;
+            top: 205px;
+            left: 61px;
+            height: 115px;
+            width: 70px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <audio id="audio" src="./audio/fly.mp3" ></audio>
+
+    <div id="scoreboard">
+        <div id="medal"></div>
+        <div id="currentscore"></div>
+        <div id="highscore"></div>
+        <div id="replay"><img src="img/replay.png" alt="replay"></div>
+    </div>
 </body>
 </html>

@@ -7,7 +7,7 @@
     var JUMP_HEIGHT     = -8;
 
     //for objects
-    var bird, score;
+    var bird, score, winShow;
     var pipes = [];
 
     //start function
@@ -42,6 +42,9 @@
             //bird.touchPipe(pipes[i]);
         }
         score.viewScore();
+        $("#replay").click(function() {
+            window.location.reload();
+        });
     };
 
     //keyboard capture
@@ -52,7 +55,8 @@
         }
         if (keyCode === ENTER_KEY_CODE) {
             score.setHighestScore();
-            window.location.reload();
+            //window.location.reload();
+            endGame();
         }
     };
 
@@ -71,7 +75,6 @@
     function endGame() {
         noLoop();
         noStroke();
-        text('You lose !', width/2, height/2);
-        text('Press ENTER to restart !', width/2, height/2+30);
+        winShow = new Windowshow(score.score, score.highestScore);
     }
 })();
