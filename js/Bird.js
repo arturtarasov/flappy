@@ -24,7 +24,7 @@
         image(this.imgBird,this.x, this.y);
     };
 
-    Bird.prototype.touchWall = function () {
+    /*Bird.prototype.touchWall = function () {
         if (this.y > height || this.y < 0)
             console.log("wall");
     };
@@ -32,5 +32,11 @@
     Bird.prototype.touchPipe = function (pipe) {
         if (pipe.x - this.x < 5)
             console.log("pipe");
-    };
+    };*/
+    
+    Bird.prototype.kill = function (canvas_height) {
+        if (this.y > canvas_height || this.y < 0){
+            console.log('kill');
+        }
+    }
 })();

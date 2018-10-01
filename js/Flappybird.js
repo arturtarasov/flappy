@@ -28,7 +28,7 @@
         background(51);
         bird.update();
         bird.draw();
-        //bird.touchWall();
+
         score.setHighestScore();
         if (frameCount % 100 == 0){
             pipes.push(new Pipe(width));
@@ -39,12 +39,14 @@
         {
             pipes[i].draw();
             pipes[i].update();
-            //bird.touchPipe(pipes[i]);
+            console.log(pipes[0].x + ' ' + pipes[0].heightPipeUp);
         }
         score.viewScore();
         $("#replay").click(function() {
             window.location.reload();
         });
+        if (score.score > 0)
+            bird.kill(CANVAS_HEIGHT);
     };
 
     //keyboard capture
@@ -53,16 +55,11 @@
             bird.hop(JUMP_HEIGHT);
             audioFly();
         }
-        if (keyCode === ENTER_KEY_CODE) {
-            score.setHighestScore();
-            //window.location.reload();
-            endGame();
-        }
     };
 
     window.onmousedown = function(){
         bird.hop(JUMP_HEIGHT);
-        audioFly()
+        audioFly();
     };
 
     //play audio function

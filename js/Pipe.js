@@ -11,14 +11,17 @@
         this.heightPipeUp = random(HEIGHT_PIPE_UP_1, HEIGHT_PIPE_UP_2);
         this.imgUp = loadImage("img/pipeUp.png");
         this.imgDown = loadImage("img/pipeDown.png");
+        console.log(this.x + ' ' + this.heightPipeUp);
     };
 
     Pipe.prototype.update = function () {
         this.x -= SPEED_PIPE;
+        console.log(this.x + ' ' + this.heightPipeUp);
     };
 
     Pipe.prototype.draw = function () {
         image(this.imgUp, this.x, 0, WIDTH_PIPE, this.heightPipeUp);
         image(this.imgDown, this.x, this.heightPipeUp + BIRD_WAY, WIDTH_PIPE, height-(this.heightPipeUp + BIRD_WAY));
+        console.log(this.x + ' ' + this.heightPipeUp);
     };
 })();
